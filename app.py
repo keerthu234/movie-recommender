@@ -64,11 +64,8 @@ div[data-testid="stTab"] { color: white; }
 
 @st.cache_data
 def load_data():
-    movies = pd.read_csv('https://raw.githubusercontent.com/keerthu234/movie-recommender/main/movies.csv')
-    movies = movies.head(2000).reset_index(drop=True)
-    movies['avg_rating'] = 4.0
-    movies['num_ratings'] = 100
-    ratings = pd.DataFrame()
+    movies = pd.read_csv('ml-latest/movies.csv')
+    ratings = pd.read_csv('ml-latest/ratings.csv')
     return movies, ratings
     movies = movies.head(5000).reset_index(drop=True)
     avg_ratings = ratings.groupby('movieId')['rating'].agg(['mean','count']).reset_index()
